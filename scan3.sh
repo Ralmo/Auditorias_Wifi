@@ -1,3 +1,9 @@
+# Verificar si la interfaz wlan0 existe y está activa
+if ! ip link show wlan0 > /dev/null 2>&1; then
+    echo "Error: La interfaz wlan0 no existe o no está activa."
+    exit 1
+fi
+
 # Verificar número de parámetros
 if [ "$#" -ne 3 ]; then
     echo "Error: Número incorrecto de parámetros."
